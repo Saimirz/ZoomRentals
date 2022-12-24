@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RenterRepository extends CrudRepository<Renter, Long> {
+public interface RenterRepository extends CrudRepository<Renter, Long> {
 
 }
