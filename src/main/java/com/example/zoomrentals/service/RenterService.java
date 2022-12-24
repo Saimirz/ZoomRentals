@@ -67,8 +67,18 @@ public class RenterService {
         return accountRepository.save(accountToBeAdded);
     }
 
-    public List<Account> getAllAccounts(long renter_id){
-        return accountRepository.findAllByRenterId(renter_id);
+    public List<Account> getAllAccounts(long renterId){
+        return accountRepository.findAllByRenterId(renterId);
+    }
+
+    public void deleteAllAccounts(long renterId){
+        if (renterRepository.existsById(renterId)) {
+            accountRepository.deleteAllByRenterId(renterId);
+        }
+        else{
+            throw new ResourceNotFound("teacher id not found");
+        }
+
     }
 
 }

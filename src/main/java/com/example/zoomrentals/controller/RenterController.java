@@ -63,6 +63,11 @@ public class RenterController {
                 return accountResponses;
         }
 
+        @DeleteMapping("/{renter_id}/accounts")
+        public void deleteAllAccounts(@PathVariable long renterId){
+            renterService.deleteAllAccounts(renterId);
+        }
+
 
     @PutMapping("/{id}")
 

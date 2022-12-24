@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Long> {
    public List<Account>findAllByRenterId(long renter_id);
-    void deleteByRenterId(long id);
+    void deleteAllByRenterId(long renter_id);
 
 }
