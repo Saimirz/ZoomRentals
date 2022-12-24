@@ -21,8 +21,8 @@ public class RenterController {
     RenterService renterService;
 
     @GetMapping()
-    public List<RenterResponse> getAllRenters(){
-        List<Renter> renters = renterService.getAllRenters();
+    public List<RenterResponse> getAllRenters(@RequestParam(required = false) String firstName){
+        List<Renter> renters = renterService.getAllRenters(firstName);
 
         List<RenterResponse> renterResponses = new ArrayList<>();
 

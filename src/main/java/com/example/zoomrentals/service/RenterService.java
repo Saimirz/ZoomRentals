@@ -14,9 +14,15 @@ public class RenterService {
     @Autowired
     RenterRepository renterRepository;
 
-    public List<Renter> getAllRenters(){
+    public List<Renter> getAllRenters(String firstNameParam){
 
-        return (List<Renter>) renterRepository.findAll();
+        if(firstNameParam == null || firstNameParam.isBlank())
+            return (List<Renter>) renterRepository.findAll();
+
+
+        return renterRepository.findAllByFirstNameIgnoreCase(firstNameParam);
+
+
     }
 
     public Renter insertRenter(RenterRequest renterRequest){
