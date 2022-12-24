@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "renters")
 public class Renter {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "first_name")
             private String firstName ;
@@ -20,7 +20,8 @@ public class Renter {
     @Column (name = "number")
              private String number;
     @Column (name = "address")
-             private  String Address;
+             private  String address;
+
 
 
 
