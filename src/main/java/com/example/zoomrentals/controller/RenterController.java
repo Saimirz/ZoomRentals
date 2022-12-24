@@ -5,6 +5,7 @@ import com.example.zoomrentals.entity.Renter;
 import com.example.zoomrentals.request.RenterRequest;
 import com.example.zoomrentals.response.RenterResponse;
 import com.example.zoomrentals.service.RenterService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,10 @@ public class RenterController {
 
     @PostMapping()
 
-    public void addRenter(@RequestBody RenterRequest renterRequest){
+    public RenterResponse addRenter( @Valid @RequestBody RenterRequest renterRequest){
+
+        Renter renter = renterService.insertRenter(renterRequest);
+        return new RenterResponse(renter);
 
     }
 }
