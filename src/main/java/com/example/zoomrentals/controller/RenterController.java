@@ -7,6 +7,7 @@ import com.example.zoomrentals.response.RenterResponse;
 import com.example.zoomrentals.service.RenterService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class RenterController {
     }
 
     @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
 
     public RenterResponse addRenter( @Valid @RequestBody RenterRequest renterRequest){
 
