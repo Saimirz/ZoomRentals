@@ -17,5 +17,6 @@ public class CarResponse {
         model = car.getModel();
         year = car.getYear();
         type = car.getType();
+
     }
 }

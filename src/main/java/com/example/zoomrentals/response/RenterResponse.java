@@ -13,11 +13,16 @@ public class RenterResponse {
     private String email;
     private String number;
 
+    private CarResponse car;
+
     public  RenterResponse(Renter renter){
         id = renter.getId();
         firstName = renter.getFirstName();
         lastName = renter.getLastName();
         email = renter.getEmail();
         number  = renter.getNumber();
+        car = new CarResponse(renter.getCar());
+
+
     }
 }
