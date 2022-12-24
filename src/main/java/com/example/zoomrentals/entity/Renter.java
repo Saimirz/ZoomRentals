@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "renters")
-public class Renters {
+public class Renter {
     @Id @GeneratedValue
     private long id;
     @Column(name = "first_name")
