@@ -1,6 +1,7 @@
 package com.example.zoomrentals.service;
 
 import com.example.zoomrentals.entity.Renter;
+import com.example.zoomrentals.exception.ResourceNotFound;
 import com.example.zoomrentals.repository.RenterRepository;
 import com.example.zoomrentals.request.RenterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,17 @@ public class RenterService {
         return renterRepository.save(new Renter(renterRequest));
 
     }
+
+    public Renter updateRenter(long renterId, RenterRequest renterRequest){
+
+        renterRepository.findById(renterId)
+                .orElseThrow(()->new ResourceNotFound("Teacher id is now found"));
+
+        Renter renterToBeUpdated = new Renter(renterRequest);
+        renterToBeUpdated.setId(renterId);
+
+        return renterRepository.save(renterToBeUpdated);
+    }
+
+
 }

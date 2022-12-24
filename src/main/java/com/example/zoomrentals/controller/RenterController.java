@@ -42,4 +42,15 @@ public class RenterController {
         return new RenterResponse(renter);
 
     }
+
+    @PutMapping("/{id}")
+
+    public RenterResponse updateRenter(@PathVariable long id ,
+                                         @Valid @RequestBody RenterRequest renterRequest){
+
+        Renter updatedRenter = renterService.updateRenter(id,renterRequest);
+
+        return new RenterResponse(updatedRenter);
+    }
+
 }
