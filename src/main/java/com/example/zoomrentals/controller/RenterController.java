@@ -1,8 +1,11 @@
 package com.example.zoomrentals.controller;
 
 
+import com.example.zoomrentals.entity.Account;
 import com.example.zoomrentals.entity.Renter;
+import com.example.zoomrentals.request.AccountRequest;
 import com.example.zoomrentals.request.RenterRequest;
+import com.example.zoomrentals.response.AccountResponse;
 import com.example.zoomrentals.response.RenterResponse;
 import com.example.zoomrentals.service.RenterService;
 import jakarta.validation.Valid;
@@ -42,6 +45,24 @@ public class RenterController {
         return new RenterResponse(renter);
 
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/{renter_id}/accounts")
+    public AccountResponse addAccount(@PathVariable long renterId, @Valid @RequestBody AccountRequest accountRequest)
+    {
+        return new AccountResponse(renterService.addAccountToRenter(renterId , accountRequest));
+    }
+
+    @GetMapping("/{renter_id}/accounts")
+        public List<AccountResponse> getAllAccounts(@PathVariable long renter_id){
+        List<Account> accounts = renterService.getAllAccounts(renter_id);
+        List<AccountResponse> accountResponses = new ArrayList<>();
+        for(int i = 0; i <accounts.size(); i++){
+            accountResponses.add(new AccountResponse(accounts.get(i)));
+        }
+                return accountResponses;
+        }
+
 
     @PutMapping("/{id}")
 

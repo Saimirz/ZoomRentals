@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Long> {
-    List<Account>findByRenterId(long id);
+   public List<Account>findAllByRenterId(long renter_id);
     void deleteByRenterId(long id);
 
 }

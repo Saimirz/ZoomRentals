@@ -18,11 +18,13 @@ public class Account {
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String accountNumber;
 
+    @Column(nullable = false)
+    private String accountNumber;
+    @Column(nullable = false)
     private String accountName;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "renter_id")
     private Renter renter;
