@@ -53,4 +53,11 @@ public class RenterController {
         return new RenterResponse(updatedRenter);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteTeacher(@PathVariable long id)
+    {
+        renterService.deleteRenter(id);
+    }
+
+
 }

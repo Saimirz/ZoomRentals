@@ -36,5 +36,16 @@ public class RenterService {
         return renterRepository.save(renterToBeUpdated);
     }
 
+    public void deleteRenter(long renterId){
+
+        if (renterRepository.existsById(renterId)) {
+            renterRepository.deleteById(renterId);
+        }
+        else{
+            throw new ResourceNotFound("teacher id not found");
+        }
+
+    }
+
 
 }
