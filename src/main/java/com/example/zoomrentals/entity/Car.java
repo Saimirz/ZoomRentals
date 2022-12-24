@@ -22,4 +22,6 @@ public class Car {
     private String model;
     @Column(name = "type", nullable = false)
     private String type;
+    @Column(name = "year", nullable = false)
+    private String year;
 }

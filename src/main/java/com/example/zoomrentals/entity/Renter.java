@@ -25,6 +25,9 @@ public class Renter {
     @Column (name = "address" , nullable = false)
              private  String address;
 
+    @OneToOne(cascade = CascadeType.ALL , optional = false)
+    private Car car;
+
     public Renter (RenterRequest renterRequest){
         firstName = renterRequest.getFirstName();
         lastName = renterRequest.getLastName();

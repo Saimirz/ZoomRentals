@@ -1,6 +1,8 @@
 package com.example.zoomrentals.request;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,4 +20,8 @@ public class RenterRequest {
     private String number;
     @NotBlank
     private String address;
+
+    @NotNull
+    @Valid
+    private CarRequest car;
 }
