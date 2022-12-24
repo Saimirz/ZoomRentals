@@ -17,9 +17,9 @@ public class Renter {
             private String lastName ;
     @Column (name="email")
             private String email;
-    @Column (name = "Number")
+    @Column (name = "number")
              private String number;
-    @Column (name = "Address")
+    @Column (name = "address")
              private  String Address;
 
 
